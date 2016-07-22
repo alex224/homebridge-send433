@@ -1,0 +1,25 @@
+{
+  "name": "homebridge-send433",
+  "version": "1.0.0",
+  "description": "send433 plugin for Homebridge (https://github.com/nfarina/homebridge) by using the 433mhz send daemon (https://github.com/xkonni/raspberry-remote)",
+  "license": "MIT",
+  "keywords": [
+    "homebridge-plugin"
+  ],
+  "engines": {
+    "node": ">=0.12.0",
+    "homebridge": ">=0.2.0"
+  },
+  "author": {
+    "name": "Alexander Heinze"
+  },
+  "contributors":[
+  ], 
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/alex224/homebridge-send433.git"
+  },
+  "dependencies": {
+    
+  }
+}

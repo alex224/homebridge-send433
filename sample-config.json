@@ -1,0 +1,21 @@
+{
+    "bridge": {
+        "name": "HomeBridge",
+        "username": "CC:22:3D:E3:CE:30",
+        "port": 51826,
+        "pin": "031-45-154"
+    },
+    "description": "HomeBridge 433Mhz-Switch Control",
+    "accessories": [
+        {
+            "accessory": "Send433",
+            "name": "Sonos",
+            "send433host": "homekitpi",
+            "send433port": 11337,
+            "send433code": "11111",
+            "send433number": "03",
+            "checkHost": "192.168.1.92",
+            "checkPort": "1443"
+        }
+    ]
+}
