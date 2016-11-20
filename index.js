@@ -57,11 +57,27 @@ Send433Accessory.prototype = {
 		var me = this;
 		//Using host and port and try to connect
 		if (this.checkHost && this.checkPort) {
+			
+			var callbackCalled = false;
+
 			me.log('Get power state request, try to connect to ' + this.checkHost + ":" + this.checkPort);
 			ping.checkHostIsReachable(this.checkHost, this.checkPort, function(result) {
 				me.log('Connect result: ' + result);
-                callback(null, result ? 1 : 0);
+				me.lastState = result;
+				if (!callbackCalled) {
+                	callback(null, result ? 1 : 0);
+				} else {
+					me.switchService.setCharacteristic(Characteristic.On, result ? 1 : 0);
+				}
             });
+			
+			//First return the cached state if available
+			if (me.lastState != null) {
+				me.log('returning last known value: ' + me.lastState);
+				callback(null, me.lastState);
+				callbackCalled = true;
+			}
+
 		} else {
 			//Use last state
 			me.log('Get power state request, returning last known state ' + this.lastState);
